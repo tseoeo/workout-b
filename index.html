@@ -130,6 +130,39 @@
     background:#3a4756;cursor:pointer;transition:width .2s,background .2s}
   #dots button.active{width:22px;border-radius:5px;background:var(--accent)}
 
+  /* ---------- progress card ---------- */
+  .progress{margin-top:4px;background:linear-gradient(180deg,#141c28,#0f1621);
+    border:1px solid #2c3a4b;border-radius:14px;padding:13px 14px;
+    display:flex;flex-direction:column;gap:11px}
+  .pg-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .pg-name{font-size:14px;font-weight:800;letter-spacing:-.01em;line-height:1.1}
+  .pg-name .lbl{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);font-weight:800;margin-bottom:3px}
+  .trend{display:inline-flex;align-items:center;background:var(--accent-soft);color:var(--accent);
+    border:1px solid #36d39955;border-radius:999px;padding:4px 10px;font-size:12.5px;
+    font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .pg-chart{display:flex;align-items:flex-end;gap:8px;height:78px}
+  .pg-bar{flex:1 1 0;min-width:0;height:100%;display:flex;flex-direction:column;
+    align-items:center;justify-content:flex-end;gap:5px}
+  .pg-bar .bw{font-size:11px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+  .pg-bar.next .bw{color:var(--accent)}
+  .pg-bar .bar{width:100%;max-width:38px;border-radius:6px 6px 0 0;min-height:6px;
+    background:linear-gradient(180deg,#54697f,#3c4d61)}
+  .pg-bar.next .bar{background:var(--accent-soft);border:2px dashed var(--accent);border-bottom:none}
+  .pg-cmp{display:flex;align-items:stretch;gap:9px}
+  .pg-box{flex:1 1 0;min-width:0;background:var(--bg2);border:1px solid var(--line);
+    border-radius:11px;padding:9px 11px;display:flex;flex-direction:column;gap:3px}
+  .pg-box.next{border:2px solid var(--accent);background:var(--accent-soft)}
+  .pg-box .bl{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:800}
+  .pg-box.next .bl{color:var(--accent)}
+  .pg-box .bw{font-size:22px;font-weight:850;line-height:1.03;letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;overflow-wrap:break-word}
+  .pg-box .bw.txt{font-size:14.5px;font-weight:800;line-height:1.2}
+  .pg-box .br{font-size:12px;color:var(--muted);font-weight:600}
+  .pg-arrow{flex:0 0 auto;align-self:center;color:var(--muted);font-size:19px;font-weight:800}
+  .pg-note{display:flex;gap:7px;align-items:flex-start;font-size:13px;line-height:1.42;color:var(--text)}
+  .pg-note .ic{flex:0 0 auto;font-size:14px}
+
   @media (min-width:560px){.demo img{height:30vh}}
 </style>
 </head>
@@ -244,9 +277,91 @@
     }
   ];
 
+  // ---------- progress log (append one {date,weight,reps} to `history` each session; update `next`) ----------
+  // weight:null = bodyweight — set `weightLabel` for display; bar chart renders only from numeric `weight`.
+  var PROGRESS = [
+    { // Dumbbell Bulgarian Split Squat
+      history:[{date:"24 Jun", weight:null, weightLabel:"BW", reps:"10 / leg"}],
+      next:{weight:null, weightLabel:"5 kg / hand", repsLabel:"8–10 / leg", note:"Clean at bodyweight — add 5 kg dumbbells."}
+    },
+    { // Dumbbell Overhead Press
+      history:[{date:"24 Jun", weight:10, reps:"8, 8, 4"}],
+      next:{weight:10, repsLabel:"aim 8, 8, 8", note:"Keep 10 kg/hand and build that last set to 8."}
+    },
+    { // Seated Cable Row
+      history:[{date:"24 Jun", weight:30, reps:"8, 8, 8"}],
+      next:{weight:30, repsLabel:"8–10", note:"Hold 30 kg for all 3 sets, then build reps to 10."}
+    },
+    { // Seated Leg Curl
+      history:[{date:"24 Jun", weight:45, reps:"8, 8, 8"}],
+      next:{weight:45, repsLabel:"10–12 slow", note:"57.5 kg was too heavy — ~45 kg with a slow lower for 10–12."}
+    },
+    { // Ab Wheel Rollout
+      history:[{date:"24 Jun", weight:null, weightLabel:"BW wall", reps:"7, 8, 8"}],
+      next:{weight:null, weightLabel:"BW wall", repsLabel:"8–12", note:"Step your feet back a little from the wall."}
+    }
+  ];
+
   var track = document.getElementById('track');
 
   function el(tag, cls, html){var n=document.createElement(tag); if(cls)n.className=cls; if(html!=null)n.innerHTML=html; return n;}
+
+  // ---------- progress card ----------
+  function buildProgress(ex, p){
+    if(!p) return null;
+    function disp(w,label){ return (w!=null) ? (w+' kg') : (label||'BW'); }
+
+    var wrap = el('div','progress');
+    var numHist = p.history.filter(function(h){ return h.weight!=null; });
+    var last = p.history[p.history.length-1];
+    var lastNumW = null;
+    for(var i=p.history.length-1;i>=0;i--){ if(p.history[i].weight!=null){ lastNumW=p.history[i].weight; break; } }
+
+    // header + trend badge (only when next target is a higher numeric weight)
+    var head = el('div','pg-head');
+    head.appendChild(el('div','pg-name','<span class="lbl">Progress</span>'+ex.name));
+    if(p.next.weight!=null && lastNumW!=null && p.next.weight>lastNumW){
+      var delta = Math.round((p.next.weight-lastNumW)*10)/10;
+      head.appendChild(el('span','trend','&#9650;&nbsp;+'+delta+'&nbsp;kg'));
+    }
+    wrap.appendChild(head);
+
+    // weight trend bar chart — only with 2+ logged numeric sessions; final bar = next target (accent, dashed)
+    if(numHist.length>=2){
+      var series = numHist.map(function(h){ return {w:h.weight,next:false}; });
+      if(p.next.weight!=null) series.push({w:p.next.weight,next:true});
+      var maxW = Math.max.apply(null, series.map(function(s){ return s.w; }));
+      var chart = el('div','pg-chart');
+      series.forEach(function(s){
+        var col = el('div','pg-bar'+(s.next?' next':''));
+        col.appendChild(el('div','bw',s.w));
+        var bar = el('div','bar');
+        bar.style.height = Math.round(24+76*(s.w/maxW))+'%';
+        col.appendChild(bar);
+        chart.appendChild(col);
+      });
+      wrap.appendChild(chart);
+    }
+
+    // last -> next comparison
+    var cmp = el('div','pg-cmp');
+    cmp.appendChild(el('div','pg-box',
+      '<div class="bl">'+last.date+'</div>'+
+      '<div class="bw'+(last.weight==null?' txt':'')+'">'+disp(last.weight,last.weightLabel)+'</div>'+
+      '<div class="br">&times;&nbsp;'+last.reps+'</div>'));
+    cmp.appendChild(el('div','pg-arrow','&rarr;'));
+    cmp.appendChild(el('div','pg-box next',
+      '<div class="bl">Next&nbsp;&#9650;</div>'+
+      '<div class="bw'+(p.next.weight==null?' txt':'')+'">'+disp(p.next.weight,p.next.weightLabel)+'</div>'+
+      '<div class="br">'+p.next.repsLabel+'</div>'));
+    wrap.appendChild(cmp);
+
+    // coaching note
+    if(p.next.note){
+      wrap.appendChild(el('div','pg-note','<span class="ic">&#128161;</span><span>'+p.next.note+'</span>'));
+    }
+    return wrap;
+  }
 
   // ---- intro slide ----
   var intro = el('section','slide');
@@ -304,6 +419,9 @@
     hm.appendChild(el('div','stat','<div class="k">Rest</div><div class="v">'+ex.how.rest+'</div>'));
     hm.appendChild(el('div','stat','<div class="k">Weight</div><div class="v" style="font-size:13.5px">'+ex.how.weight+'</div>'));
     inner.appendChild(hm);
+
+    var pgCard = buildProgress(ex, PROGRESS[idx]);
+    if(pgCard) inner.appendChild(pgCard);
 
     var a = el('a','watch','<span class="play">&#9654;</span> Watch proper form');
     a.href = ex.yt; a.target = "_blank"; a.rel = "noopener";
