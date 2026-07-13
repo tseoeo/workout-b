@@ -149,19 +149,25 @@
   .pg-bar .bar{width:100%;max-width:38px;border-radius:6px 6px 0 0;min-height:6px;
     background:linear-gradient(180deg,#54697f,#3c4d61)}
   .pg-bar.next .bar{background:var(--accent-soft);border:2px dashed var(--accent);border-bottom:none}
-  .pg-cmp{display:flex;align-items:stretch;gap:9px}
-  .pg-box{flex:1 1 0;min-width:0;background:var(--bg2);border:1px solid var(--line);
-    border-radius:11px;padding:9px 11px;display:flex;flex-direction:column;gap:3px}
-  .pg-box.next{border:2px solid var(--accent);background:var(--accent-soft)}
-  .pg-box .bl{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:800}
-  .pg-box.next .bl{color:var(--accent)}
-  .pg-box .bw{font-size:22px;font-weight:850;line-height:1.03;letter-spacing:-.02em;
+  .pg-hist{display:flex;flex-direction:column;gap:3px;background:var(--bg2);
+    border:1px solid var(--line);border-radius:11px;padding:9px 12px}
+  .pg-hist .hl{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+    font-weight:800;margin-bottom:3px}
+  .pg-hist .row{font-size:13px;line-height:1.5;color:var(--muted);
     font-variant-numeric:tabular-nums;overflow-wrap:break-word}
-  .pg-box .bw.txt{font-size:14.5px;font-weight:800;line-height:1.2}
-  .pg-box .br{font-size:12px;color:var(--muted);font-weight:600}
-  .pg-arrow{flex:0 0 auto;align-self:center;color:var(--muted);font-size:19px;font-weight:800}
-  .pg-note{display:flex;gap:7px;align-items:flex-start;font-size:13px;line-height:1.42;color:var(--text)}
-  .pg-note .ic{flex:0 0 auto;font-size:14px}
+  .pg-hist .row .d{color:#7f93a5}
+  .pg-hist .row.now{color:var(--text);font-weight:800}
+  .pg-hist .row.now .d{color:var(--accent)}
+  .pg-next{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;
+    padding:10px 13px;display:flex;flex-direction:column;gap:2px}
+  .pg-next .bl{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);font-weight:800}
+  .pg-next .bw{font-size:23px;font-weight:850;line-height:1.04;letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;overflow-wrap:break-word}
+  .pg-next .bw.txt{font-size:15px;font-weight:800;line-height:1.2}
+  .pg-next .br{font-size:12.5px;color:var(--muted);font-weight:600}
+  .pg-next .nt{display:flex;gap:6px;align-items:flex-start;margin-top:6px;
+    font-size:12.5px;line-height:1.4;color:var(--text)}
+  .pg-next .nt .ic{flex:0 0 auto;font-size:13px}
 
   @media (min-width:560px){.demo img{height:30vh}}
 </style>
@@ -281,24 +287,29 @@
   // weight:null = bodyweight — set `weightLabel` for display; bar chart renders only from numeric `weight`.
   var PROGRESS = [
     { // Dumbbell Bulgarian Split Squat
-      history:[{date:"24 Jun", weight:null, weightLabel:"BW", reps:"10 / leg"}],
-      next:{weight:null, weightLabel:"5 kg / hand", repsLabel:"8–10 / leg", note:"Clean at bodyweight — add 5 kg dumbbells."}
+      history:[{date:"24 Jun", weight:null, weightLabel:"BW", reps:"10 / leg"},
+               {date:"9 Jul", weight:5, weightLabel:"5 kg / hand", reps:"10, 10, 10 / leg"}],
+      next:{weight:7.5, weightLabel:"7.5 kg / hand", repsLabel:"8–10 / leg", note:"Clean at 5 kg — up to 7.5 kg per hand."}
     },
     { // Dumbbell Overhead Press
-      history:[{date:"24 Jun", weight:10, reps:"8, 8, 4"}],
-      next:{weight:10, repsLabel:"aim 8, 8, 8", note:"Keep 10 kg/hand and build that last set to 8."}
+      history:[{date:"24 Jun", weight:10, reps:"8, 8, 4"},
+               {date:"9 Jul", weight:10, reps:"10, 10, 7"}],
+      next:{weight:12.5, repsLabel:"6–9", note:"10, 10, 7 blew past the target — add to 12.5 kg per hand."}
     },
     { // Seated Cable Row
-      history:[{date:"24 Jun", weight:30, reps:"8, 8, 8"}],
-      next:{weight:30, repsLabel:"8–10", note:"Hold 30 kg for all 3 sets, then build reps to 10."}
+      history:[{date:"24 Jun", weight:30, reps:"8, 8, 8"},
+               {date:"9 Jul", weight:33.5, reps:"10, 10, 8"}],
+      next:{weight:33.5, repsLabel:"aim 10, 10, 10", note:"Held 33.5 for 10,10,8 — get the last set to 10, then add."}
     },
     { // Seated Leg Curl
-      history:[{date:"24 Jun", weight:45, reps:"8, 8, 8"}],
-      next:{weight:45, repsLabel:"10–12 slow", note:"57.5 kg was too heavy — ~45 kg with a slow lower for 10–12."}
+      history:[{date:"24 Jun", weight:45, reps:"8, 8, 8"},
+               {date:"9 Jul", weight:42.5, reps:"12, 12, 12"}],
+      next:{weight:null, weightLabel:"one step up (~45 kg)", repsLabel:"10–12 slow", note:"Clean 12s at 42.5 kg — nudge up one small step, slow lower (and log the weight)."}
     },
     { // Ab Wheel Rollout
-      history:[{date:"24 Jun", weight:null, weightLabel:"BW wall", reps:"7, 8, 8"}],
-      next:{weight:null, weightLabel:"BW wall", repsLabel:"8–12", note:"Step your feet back a little from the wall."}
+      history:[{date:"24 Jun", weight:null, weightLabel:"kneeling · wall-limited", reps:"7, 8, 8"},
+               {date:"9 Jul", weight:null, weightLabel:"kneeling · wall-limited", reps:"10, 10, 10"}],
+      next:{weightLabel:"kneeling · wall-limited", repsLabel:"8–12", note:"Move your knees further from the wall to increase the range, working toward a full kneeling rollout."}
     }
   ];
 
@@ -309,15 +320,14 @@
   // ---------- progress card ----------
   function buildProgress(ex, p){
     if(!p) return null;
-    function disp(w,label){ return (w!=null) ? (w+' kg') : (label||'BW'); }
+    // display weight: prefer an explicit weightLabel, else the numeric kg, else bodyweight
+    function wdisp(o){ return o.weightLabel ? o.weightLabel : (o.weight!=null ? (o.weight+' kg') : 'BW'); }
 
     var wrap = el('div','progress');
     var numHist = p.history.filter(function(h){ return h.weight!=null; });
-    var last = p.history[p.history.length-1];
-    var lastNumW = null;
-    for(var i=p.history.length-1;i>=0;i--){ if(p.history[i].weight!=null){ lastNumW=p.history[i].weight; break; } }
+    var lastNumW = numHist.length ? numHist[numHist.length-1].weight : null;
 
-    // header + trend badge (only when next target is a higher numeric weight)
+    // 1. header + trend badge (only when the next target is a higher numeric weight than the last logged)
     var head = el('div','pg-head');
     head.appendChild(el('div','pg-name','<span class="lbl">Progress</span>'+ex.name));
     if(p.next.weight!=null && lastNumW!=null && p.next.weight>lastNumW){
@@ -326,40 +336,51 @@
     }
     wrap.appendChild(head);
 
-    // weight trend bar chart — only with 2+ logged numeric sessions; final bar = next target (accent, dashed)
+    // 2. weight trend bar chart — only with 2+ numeric-weight sessions; final bar = next target (accent, dashed)
     if(numHist.length>=2){
-      var series = numHist.map(function(h){ return {w:h.weight,next:false}; });
-      if(p.next.weight!=null) series.push({w:p.next.weight,next:true});
-      var maxW = Math.max.apply(null, series.map(function(s){ return s.w; }));
       var chart = el('div','pg-chart');
-      series.forEach(function(s){
-        var col = el('div','pg-bar'+(s.next?' next':''));
-        col.appendChild(el('div','bw',s.w));
-        var bar = el('div','bar');
-        bar.style.height = Math.round(24+76*(s.w/maxW))+'%';
+      var nextNum = (p.next.weight!=null);
+      var maxW = Math.max.apply(null, numHist.map(function(h){ return h.weight; }));
+      if(nextNum) maxW = Math.max(maxW, p.next.weight);
+      var top = nextNum ? 100 : 88;                       // headroom so a non-numeric next bar can sit taller
+      var H = function(w){ return Math.round(24 + (top-24)*(w/maxW)); };
+      numHist.forEach(function(h){
+        var col = el('div','pg-bar');
+        col.appendChild(el('div','bw',String(h.weight)));
+        var bar = el('div','bar'); bar.style.height = H(h.weight)+'%';
         col.appendChild(bar);
         chart.appendChild(col);
       });
+      var ncol = el('div','pg-bar next');
+      var nb = el('div','bar');
+      if(nextNum){ ncol.appendChild(el('div','bw',String(p.next.weight))); nb.style.height = H(p.next.weight)+'%'; }
+      else { ncol.appendChild(el('div','bw','&#9650;')); nb.style.height = Math.min(100, H(lastNumW)+16)+'%'; }
+      ncol.appendChild(nb);
+      chart.appendChild(ncol);
       wrap.appendChild(chart);
     }
 
-    // last -> next comparison
-    var cmp = el('div','pg-cmp');
-    cmp.appendChild(el('div','pg-box',
-      '<div class="bl">'+last.date+'</div>'+
-      '<div class="bw'+(last.weight==null?' txt':'')+'">'+disp(last.weight,last.weightLabel)+'</div>'+
-      '<div class="br">&times;&nbsp;'+last.reps+'</div>'));
-    cmp.appendChild(el('div','pg-arrow','&rarr;'));
-    cmp.appendChild(el('div','pg-box next',
-      '<div class="bl">Next&nbsp;&#9650;</div>'+
-      '<div class="bw'+(p.next.weight==null?' txt':'')+'">'+disp(p.next.weight,p.next.weightLabel)+'</div>'+
-      '<div class="br">'+p.next.repsLabel+'</div>'));
-    wrap.appendChild(cmp);
+    // 3. full history list — every logged session, most recent in bold
+    var hist = el('div','pg-hist');
+    hist.appendChild(el('div','hl','History'));
+    p.history.forEach(function(h, i){
+      var now = (i === p.history.length-1);
+      hist.appendChild(el('div','row'+(now?' now':''),
+        '<span class="d">'+h.date+'</span> &middot; '+wdisp(h)+' &times; '+h.reps));
+    });
+    wrap.appendChild(hist);
 
-    // coaching note
+    // 4. highlighted next target + coaching note
+    var nx = el('div','pg-next');
+    var nextIsLabel = (!!p.next.weightLabel || p.next.weight==null);
+    nx.appendChild(el('div','bl','Next&nbsp;&#9650;'));
+    nx.appendChild(el('div','bw'+(nextIsLabel?' txt':''), wdisp(p.next)));
+    nx.appendChild(el('div','br',p.next.repsLabel));
     if(p.next.note){
-      wrap.appendChild(el('div','pg-note','<span class="ic">&#128161;</span><span>'+p.next.note+'</span>'));
+      nx.appendChild(el('div','nt','<span class="ic">&#128161;</span><span>'+p.next.note+'</span>'));
     }
+    wrap.appendChild(nx);
+
     return wrap;
   }
 
