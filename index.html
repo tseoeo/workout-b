@@ -194,22 +194,23 @@
   // ---------- content model ----------
   var EXERCISES = [
     {
-      name:"Bulgarian Split Squat", sub:"with dumbbells",
-      imgs:[["images/splitsquat-down.png","Bottom"],["images/splitsquat-up.png","Top"]],
-      muscles:["quads","glutes","adductors","balance / core"],
+      name:"Hack Squat", sub:"angled sled machine",
+      imgs:[["images/hacksquat-start.jpg","Top"],["images/hacksquat-finish.jpg","Bottom"]],
+      muscles:["quads","glutes","adductors"],
       steps:[
-        "Stand ~60–70 cm in front of a bench, a dumbbell in each hand at your sides (palms facing you).",
-        "Place the top of one foot back on the bench. Front foot far enough forward that your knee stays over your mid-foot.",
-        "Lower straight down until your front thigh is about parallel to the floor; torso leans slightly forward, back stays long.",
-        "Drive up through your front heel. Finish all reps on one leg, then switch."
+        "Set your shoulders under the pads, back flat against the angled backrest, feet shoulder-width in the middle of the platform.",
+        "Release the safety handles and take the weight.",
+        "Lower by bending your knees until your thighs are about parallel (or a touch below if comfortable), keeping your whole back pressed into the pad.",
+        "Drive back up through your whole foot; don't slam into a hard knee lockout."
       ],
       cues:[
-        "First 1–2 sessions: bodyweight only — this move is all about balance. Groove the pattern before loading.",
-        "If you wobble, lightly touch a wall or rack with one finger — don't grip it.",
-        "Add dumbbells (start 5–7.5 kg/hand) once you can do 3×10 per leg cleanly; build toward ~10–15 kg/hand. The limiter is balance and the stretch, not raw strength."
+        "Keep your lower back flat on the pad — if your hips curl/round at the bottom, you've gone too deep; shorten the range.",
+        "Push through your heels and mid-foot, not your toes.",
+        "New machine: first session go light-moderate to learn the depth, then load so 8–12 reps is hard with 1–2 reps left in reserve.",
+        "Don't compare the weight to your leg press — the hack squat number will be lower, and that's normal (different leverage)."
       ],
-      how:{sets:"3 × 8–10",setsk:"per leg",rest:"~90 sec",weight:"5 kg / hand"},
-      yt:"https://www.youtube.com/watch?v=uODWo4YqbT8"
+      how:{sets:"3 × 8–12",setsk:"reps",rest:"~2 min",weight:"Find your weight"},
+      yt:"https://www.youtube.com/watch?v=0tn5K9NlCfo"
     },
     {
       name:"Overhead Press", sub:"dumbbells, standing",
@@ -264,62 +265,58 @@
       yt:"https://www.youtube.com/watch?v=ELOCsoDSmrg"
     },
     {
-      name:"Ab Wheel Rollout", sub:"build up the stages — don't rush",
-      imgs:[["images/abwheel-start.svg","Kneeling"],["images/abwheel-finish.svg","Rolled out"]],
-      muscles:["abs (anti-extension)","obliques"],
+      name:"Ab Crunch Machine", sub:"seated, loadable",
+      imgs:[["images/abcrunch-start.svg","Upright"],["images/abcrunch-finish.svg","Crunched"]],
+      muscles:["abs (rectus abdominis)"],
       steps:[
-        "Wall rollout (standing): face a wall, roll the wheel up the wall and back. Step your feet back from the wall to make it harder.",
-        "Kneeling partial: from your knees, roll out only as far as you can keep your lower back from sagging — even 30 cm is fine.",
-        "Kneeling full rollout: extend almost flat, then pull back. This is the real target (a few weeks).",
-        "Long-term, optional: standing rollout — advanced, no rush."
+        "Sit with your back against the pad, hold the handles (or rest your arms on the pads), feet secured.",
+        "Crunch by curling your ribcage toward your pelvis — round your upper back, don't just fold at the hips.",
+        "Squeeze at the bottom, then return under control; don't let the weight yank you back up."
       ],
       cues:[
-        "Brace your abs and tuck your pelvis slightly (round the lower back — never let it arch).",
-        "If you feel it in your lower back instead of your abs, you've rolled out too far — shorten the range.",
-        "No wheel? A barbell with plates on the floor works identically."
+        "It's a spinal curl (ribs toward hips), not a hip bend or an arm pull.",
+        "Controlled tempo both ways — the slow return is where a lot of the work is.",
+        "Loadable on purpose — pick a weight where 10–15 reps is genuinely hard."
       ],
-      how:{sets:"3 × 8–12",setsk:"at your stage",rest:"~90 sec",weight:"Whatever stage you're on"},
-      yt:"https://www.youtube.com/watch?v=ikkOq5mHaho"
+      how:{sets:"3 × 10–15",setsk:"reps",rest:"~60–90 sec",weight:"Find your weight"},
+      yt:"https://www.youtube.com/watch?v=_O1xunCfYEM"
     }
   ];
 
   // ---------- progress log (append one {date,weight,reps} to `history` each session; update `next`) ----------
   // weight:null = bodyweight — set `weightLabel` for display; bar chart renders only from numeric `weight`.
   var PROGRESS = [
-    { // Dumbbell Bulgarian Split Squat
-      history:[{date:"24 Jun", weight:null, weightLabel:"BW", reps:"10 / leg"},
-               {date:"9 Jul", weight:5, weightLabel:"5 kg / hand", reps:"10, 10, 10 / leg"},
-               {date:"16 Jul", weight:7.5, weightLabel:"7.5 kg / hand", reps:"10, 10, 10 / leg"},
-               {date:"23 Jul", weight:10, weightLabel:"10 kg / hand", reps:"10, 10, 10 / leg"}],
-      next:{weight:12.5, weightLabel:"12.5 kg / hand", repsLabel:"8–10 / leg", note:"Clean at 10 kg — up to 12.5 kg per hand."}
+    { // Hack Squat — new machine, replaced the Bulgarian split squat
+      history:[],
+      next:{weightLabel:"find your weight", repsLabel:"8–12, 1–2 in reserve", note:"New exercise (replaced the split squat) — first session go light-moderate to learn it, then find a weight where 8–12 is hard."}
     },
     { // Dumbbell Overhead Press
       history:[{date:"24 Jun", weight:10, reps:"8, 8, 4"},
                {date:"9 Jul", weight:10, reps:"10, 10, 7"},
                {date:"16 Jul", weight:10, reps:"9, 9, 9"},
-               {date:"23 Jul", weight:10, reps:"10, 10, 10"}],
-      next:{weight:12.5, repsLabel:"aim ~6 to start", note:"Three clean sets of 10 — you've outgrown 10 kg, now try 12.5 kg per hand (start around 6 reps and build)."}
+               {date:"23 Jul", weight:10, reps:"10, 10, 10"},
+               {date:"30 Jul", weight:12.5, reps:"8, 9, 9"}],
+      next:{weight:12.5, repsLabel:"aim 9, 9, 9", note:"Made the jump to 12.5 kg — hold it and build to 9, 9, 9, then add."}
     },
     { // Seated Cable Row
       history:[{date:"24 Jun", weight:30, reps:"8, 8, 8"},
                {date:"9 Jul", weight:33.5, reps:"10, 10, 8"},
                {date:"16 Jul", weight:33, reps:"10, 22, 22"},
-               {date:"23 Jul", weight:33.5, reps:"10, 10, 7"}],
-      next:{weight:33.5, repsLabel:"aim 10, 10, 10", note:"Hold 33.5 kg and get the last set up to 10, then add."}
+               {date:"23 Jul", weight:33.5, reps:"10, 10, 7"},
+               {date:"30 Jul", weight:47, reps:"10, 10 (after a light 33 warm-up)"}],
+      next:{weight:47, repsLabel:"aim 10, 10, 10", note:"47 kg is your working weight now — get all three sets to 10, then add. (33 was far too light — 22 reps.)"}
     },
     { // Seated Leg Curl
       history:[{date:"24 Jun", weight:45, reps:"8, 8, 8"},
                {date:"9 Jul", weight:42.5, reps:"12, 12, 12"},
                {date:"16 Jul", weight:50, reps:"8, 8, 8"},
-               {date:"23 Jul", weight:50, reps:"9, 9, 9"}],
-      next:{weight:50, repsLabel:"aim 11", note:"Reps climbing (8→9) — stay at 50 kg and aim for 11 next."}
+               {date:"23 Jul", weight:50, reps:"9, 9, 9"},
+               {date:"30 Jul", weight:50, reps:"11, 11, 11"}],
+      next:{weight:50, repsLabel:"aim 12", note:"Hit 11s across — push for 12, then add."}
     },
-    { // Ab Wheel Rollout
-      history:[{date:"24 Jun", weight:null, weightLabel:"kneeling · wall-limited", reps:"7, 8, 8"},
-               {date:"9 Jul", weight:null, weightLabel:"kneeling · wall-limited", reps:"10, 10, 10"},
-               {date:"16 Jul", weight:null, weightLabel:"kneeling · further back", reps:"8, 8, 8"},
-               {date:"23 Jul", weight:null, weightLabel:"kneeling · further back", reps:"10, 10, 10"}],
-      next:{weightLabel:"kneeling · further back", repsLabel:"8–12", note:"The 10s are hard at this longer distance — hold here and solidify before extending further."}
+    { // Ab Crunch Machine — new machine, replaced the ab wheel
+      history:[],
+      next:{weightLabel:"find your weight", repsLabel:"10–15 hard", note:"New exercise (replaced the ab wheel) — pick a weight where 10–15 reps is genuinely hard; first session sets your baseline."}
     }
   ];
 
@@ -371,14 +368,17 @@
     }
 
     // 3. full history list — every logged session, most recent in bold
-    var hist = el('div','pg-hist');
-    hist.appendChild(el('div','hl','History'));
-    p.history.forEach(function(h, i){
-      var now = (i === p.history.length-1);
-      hist.appendChild(el('div','row'+(now?' now':''),
-        '<span class="d">'+h.date+'</span> &middot; '+wdisp(h)+' &times; '+h.reps));
-    });
-    wrap.appendChild(hist);
+    //    (skipped entirely for a brand-new exercise, so no empty box renders)
+    if(p.history.length){
+      var hist = el('div','pg-hist');
+      hist.appendChild(el('div','hl','History'));
+      p.history.forEach(function(h, i){
+        var now = (i === p.history.length-1);
+        hist.appendChild(el('div','row'+(now?' now':''),
+          '<span class="d">'+h.date+'</span> &middot; '+wdisp(h)+' &times; '+h.reps));
+      });
+      wrap.appendChild(hist);
+    }
 
     // 4. highlighted next target + coaching note
     var nx = el('div','pg-next');
@@ -470,7 +470,7 @@
     i.appendChild(el('h1','big-title','Done.'));
     var box = el('div','addons');
     box.appendChild(el('div','note','<b>Optional 2-min add-ons</b> if you have time: lateral raises, overhead triceps extension, incline curls.'));
-    box.appendChild(el('div','note','<b>First couple of weeks:</b> treat the split squat and ab wheel as practice &mdash; light, leave a few reps in the tank.'));
+    box.appendChild(el('div','note','<b>First couple of weeks:</b> treat the hack squat and ab crunch machine as practice &mdash; light, leave a few reps in the tank while you find your weights.'));
     i.appendChild(box);
     return i;
   })());

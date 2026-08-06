@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 170 420 380" width="420" height="380">
+<line x1="120.0" y1="516.0" x2="494.0" y2="516.0" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+<line x1="214.0" y1="512.0" x2="214.0" y2="236.0" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+<rect x="118" y="258" width="80" height="238" rx="8" fill="#fff" stroke="#000" stroke-width="7"/>
+<line x1="118.0" y1="284.0" x2="198.0" y2="284.0" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+<line x1="118.0" y1="320.0" x2="198.0" y2="320.0" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+<line x1="118.0" y1="356.0" x2="198.0" y2="356.0" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+<line x1="118.0" y1="392.0" x2="198.0" y2="392.0" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+<line x1="118.0" y1="428.0" x2="198.0" y2="428.0" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+<line x1="118.0" y1="464.0" x2="198.0" y2="464.0" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+<line x1="158.0" y1="258.0" x2="158.0" y2="196.0" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+<line x1="214.0" y1="236.0" x2="214.0" y2="196.0" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+<line x1="214.0" y1="196.0" x2="292.0" y2="196.0" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+<g transform="translate(348.0,452.0) rotate(0.0)"><rect x="-82" y="-16" width="164" height="32" rx="10" fill="#fff" stroke="#000" stroke-width="7"/></g>
+<g transform="translate(300.0,368.0) rotate(-84.9)"><rect x="-62" y="-15" width="124" height="30" rx="10" fill="#fff" stroke="#000" stroke-width="7"/></g>
+<line x1="330.0" y1="468.0" x2="330.0" y2="512.0" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+<line x1="470.0" y1="494.0" x2="470.0" y2="460.0" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+<g transform="translate(470.0,452.0) rotate(0.0)"><rect x="-30" y="-12" width="60" height="24" rx="8" fill="#fff" stroke="#000" stroke-width="7"/></g>
+<path d="M 354.0 436.0 L 448.0 448.0 L 460.0 520.0" fill="none" stroke="#000" stroke-width="39" stroke-linecap="round" stroke-linejoin="round"/><path d="M 354.0 436.0 L 448.0 448.0 L 460.0 520.0" fill="none" stroke="#fff" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 352.0 428.0 Q 319.5 361.0 302.9 339.0 L 286.4 317.0" fill="none" stroke="#000" stroke-width="53" stroke-linecap="round"/><path d="M 352.0 428.0 Q 319.5 361.0 302.9 339.0 L 286.4 317.0" fill="none" stroke="#fff" stroke-width="42" stroke-linecap="round"/>
+<path d="M 286.4 317.0 L 274.6 294.8" fill="none" stroke="#000" stroke-width="35" stroke-linecap="round" stroke-linejoin="round"/><path d="M 286.4 317.0 L 274.6 294.8" fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="269.0" cy="286.5" r="32" fill="#fff" stroke="#000" stroke-width="11"/>
+<path d="M 352.0 428.0 L 446.0 436.0 L 458.0 512.0" fill="none" stroke="#000" stroke-width="41" stroke-linecap="round" stroke-linejoin="round"/><path d="M 352.0 428.0 L 446.0 436.0 L 458.0 512.0" fill="none" stroke="#fff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 458.0 512.0 L 498.0 524.0" fill="none" stroke="#000" stroke-width="31" stroke-linecap="round" stroke-linejoin="round"/><path d="M 458.0 512.0 L 498.0 524.0" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="292.0" cy="196.0" r="14" fill="#fff" stroke="#000" stroke-width="7"/>
+<line x1="292.0" y1="196.0" x2="362.4" y2="328.4" stroke="#000" stroke-width="10" stroke-linecap="round"/>
+<path d="M 286.4 317.0 L 336.2 267.9 L 362.4 328.4" fill="none" stroke="#000" stroke-width="31" stroke-linecap="round" stroke-linejoin="round"/><path d="M 286.4 317.0 L 336.2 267.9 L 362.4 328.4" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(333.3,273.7) rotate(-28.0)"><rect x="-26" y="-16" width="52" height="32" rx="10" fill="#fff" stroke="#000" stroke-width="7"/></g>
+<g transform="translate(362.4,328.4) rotate(-28.0)"><rect x="-22" y="-13" width="44" height="26" rx="9" fill="#fff" stroke="#000" stroke-width="7"/></g>
+</svg>
