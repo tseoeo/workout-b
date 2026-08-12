@@ -41,7 +41,6 @@
 
     /* — image plate (line-art + photos need a light ground) — */
     --color-sheet:      oklch(100% 0 0);
-    --color-sheet-ink:  oklch(52% 0.020 250);
 
     /* — bar chart ———————————————————————————— */
     --color-bar:        oklch(46% 0.024 250);
@@ -214,13 +213,10 @@
     border:var(--rule) solid var(--color-rule);border-radius:var(--radius-pill);
     padding:var(--space-3xs) var(--space-xs)}
 
-  .demo{display:flex;gap:var(--space-xs);background:var(--color-sheet);
-    border:var(--rule) solid var(--color-rule);border-radius:var(--radius-md);padding:var(--space-xs)}
-  .demo figure{flex:1 1 0;min-width:0;margin:0;
-    display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)}
-  .demo img{width:100%;height:24vh;max-height:220px;object-fit:contain;display:block}
-  .demo figcaption{font-size:var(--text-2xs);font-weight:700;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--color-sheet-ink)}
+  .demo{background:var(--color-sheet);border:var(--rule) solid var(--color-rule);
+    border-radius:var(--radius-md);padding:var(--space-xs)}
+  .demo img{display:block;width:100%;margin:0 auto;aspect-ratio:4/3;max-height:40vh;
+    object-fit:contain}
 
   h2.sec{margin:0;font-size:var(--text-2xs);font-weight:700;letter-spacing:.14em;
     text-transform:uppercase;color:var(--color-ink-3)}
@@ -279,9 +275,6 @@
     .pg-next .nt{margin-top:var(--space-2xs);padding-top:var(--space-2xs)}
   }
 
-  @media (min-width:560px){
-    .demo img{height:28vh;max-height:260px}
-  }
 
   @media (prefers-reduced-motion:reduce){
     #track{scroll-behavior:auto}
@@ -312,7 +305,7 @@
   var EXERCISES = [
     {
       name:"Hack Squat", garmin:"Barbell Hack Squat", sub:"angled sled machine",
-      imgs:[["images/hacksquat-start.jpg","Top"],["images/hacksquat-finish.jpg","Bottom"]],
+      imgs:"images/hacksquat.png",
       muscles:["quads","glutes","adductors"],
       steps:[
         "Set your shoulders under the pads, back flat against the angled backrest, feet shoulder-width in the middle of the platform.",
@@ -331,7 +324,7 @@
     },
     {
       name:"Overhead Press", garmin:"Overhead Dumbbell Press", sub:"dumbbells, standing",
-      imgs:[["images/ohp-start.png","Shoulders"],["images/ohp-finish.png","Overhead"]],
+      imgs:"images/ohp.png",
       muscles:["shoulders","triceps","upper chest","core"],
       steps:[
         "Stand tall, feet shoulder-width, a dumbbell at each shoulder, palms facing forward.",
@@ -349,7 +342,7 @@
     },
     {
       name:"Seated Cable Row", garmin:"Seated Cable Row", sub:"neutral close grip",
-      imgs:[["images/row-start.png","Stretch"],["images/row-finish.png","Squeeze"]],
+      imgs:"images/row.png",
       muscles:["mid-back","lats","rear delts","biceps"],
       steps:[
         "Use the V-shaped close handle (neutral grip, palms facing). Feet on the plates, slight knee bend, sit tall.",
@@ -366,7 +359,7 @@
     },
     {
       name:"Seated Leg Curl", garmin:"Weighted Leg Curl", sub:"hamstrings",
-      imgs:[["images/legcurl-start.png","Legs out"],["images/legcurl-finish.png","Curled"]],
+      imgs:"images/legcurl.png",
       muscles:["hamstrings"],
       steps:[
         "Sit with your back against the pad, legs out over the roller, the roller resting just above your heels / Achilles.",
@@ -383,7 +376,7 @@
     },
     {
       name:"Ab Crunch Machine", garmin:"Weighted Crunch", sub:"seated, loadable",
-      imgs:[["images/abcrunch-start.svg","Upright"],["images/abcrunch-finish.svg","Crunched"]],
+      imgs:"images/abcrunch.png",
       muscles:["abs (rectus abdominis)"],
       steps:[
         "Sit with your back against the pad, hold the handles (or rest your arms on the pads), feet secured.",
@@ -551,13 +544,8 @@
     ref.appendChild(muscles);
 
     var demo = el('div','demo');
-    ex.imgs.forEach(function(pair){
-      var fig = el('figure');
-      var img = el('img'); img.src=pair[0]; img.alt=ex.name+" – "+pair[1]; img.loading="lazy";
-      fig.appendChild(img);
-      fig.appendChild(el('figcaption',null,pair[1]));
-      demo.appendChild(fig);
-    });
+    var img = el('img'); img.src=ex.imgs; img.alt=ex.name; img.loading="lazy";
+    demo.appendChild(img);
     ref.appendChild(demo);
 
     ref.appendChild(el('h2','sec','How to do it'));
