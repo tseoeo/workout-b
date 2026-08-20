@@ -397,8 +397,9 @@
   // weight:null = bodyweight — set `weightLabel` for display; bar chart renders only from numeric `weight`.
   var PROGRESS = [
     { // Hack Squat — new machine, replaced the Bulgarian split squat
-      history:[{date:"6 Aug", weight:87.5, weightLabel:"87.5 kg (ramped 72.5→87.5)", reps:"12, 12, 12"}],
-      next:{weight:90, repsLabel:"8–12, 1–2 in reserve", note:"Calibrated to 87.5 × 12 first session (it's a seated sled leg-press — no true hack squat at the gym). Start ~90 kg and find where 8–12 is genuinely hard."}
+      history:[{date:"6 Aug", weight:87.5, weightLabel:"87.5 kg (ramped 72.5→87.5)", reps:"12, 12, 12"},
+               {date:"13 Aug", weight:95, reps:"12, 12, 12"}],
+      next:{weight:100, repsLabel:"8–12", note:"Hit 95 × 12 across all sets — add to 100 kg. (It's a seated sled leg-press — no true hack squat at the gym.)"}
     },
     { // Dumbbell Overhead Press
       history:[{date:"24 Jun", weight:10, reps:"8, 8, 4"},
@@ -406,16 +407,18 @@
                {date:"16 Jul", weight:10, reps:"9, 9, 9"},
                {date:"23 Jul", weight:10, reps:"10, 10, 10"},
                {date:"30 Jul", weight:12.5, reps:"8, 9, 9"},
-               {date:"6 Aug", weight:12.5, reps:"9, 10, 9"}],
-      next:{weight:15, repsLabel:"aim ~6", note:"Solid at 12.5 kg — go to 15 kg; reps will drop to ~6, that's normal."}
+               {date:"6 Aug", weight:12.5, reps:"9, 10, 9"},
+               {date:"13 Aug", weight:12.5, reps:"11, 11, 8"}],
+      next:{weight:15, repsLabel:"aim ~6–8", note:"Blew past the range at 12.5 (11,11,8) — go to 15 kg; reps will settle to ~6–8, that's the target."}
     },
     { // Seated Cable Row
       history:[{date:"24 Jun", weight:30, reps:"8, 8, 8"},
                {date:"9 Jul", weight:33.5, reps:"10, 10, 8"},
                {date:"23 Jul", weight:33.5, reps:"10, 10, 7"},
                {date:"30 Jul", weight:47, reps:"10, 10"},
-               {date:"6 Aug", weight:47, reps:"12, 12, 12"}],
-      next:{weight:null, weightLabel:"one step up", repsLabel:"8–10", note:"12s across at 47 kg — add weight one step up on the machine."}
+               {date:"6 Aug", weight:47, reps:"12, 12, 12"},
+               {date:"13 Aug", weight:57, reps:"12, 12, 12"}],
+      next:{weight:67, repsLabel:"8–10", note:"Machine steps ~10 kg (47→57) — hit 12s at 57, add one plate up to ~67."}
     },
     { // Seated Leg Curl
       history:[{date:"24 Jun", weight:45, reps:"8, 8, 8"},
@@ -423,12 +426,14 @@
                {date:"16 Jul", weight:50, reps:"8, 8, 8"},
                {date:"23 Jul", weight:50, reps:"9, 9, 9"},
                {date:"30 Jul", weight:50, reps:"11, 11, 11"},
-               {date:"6 Aug", weight:50, reps:"12, 12, 12"}],
-      next:{weight:null, weightLabel:"one step up", repsLabel:"10–12", note:"Hit 12s at 50 kg — add weight one step up."}
+               {date:"6 Aug", weight:50, reps:"12, 12, 12"},
+               {date:"13 Aug", weight:57, reps:"10, 10, 10"}],
+      next:{weight:57, repsLabel:"build to 12", note:"Moved up to 57 kg — build the reps to 12, then add."}
     },
     { // Ab Crunch Machine — new machine, replaced the ab wheel
-      history:[{date:"6 Aug", weight:80, weightLabel:"80 kg (machine max)", reps:"12, 12, 12"}],
-      next:{weight:80, repsLabel:"build to 15+", note:"80 kg is the machine's maximum — can't add weight, so build reps toward 15+, slow the tempo, or add a 4th set."}
+      history:[{date:"6 Aug", weight:80, weightLabel:"80 kg (machine max)", reps:"12, 12, 12"},
+               {date:"13 Aug", weight:80, weightLabel:"80 kg (max)", reps:"15, 15, 16"}],
+      next:{weight:80, repsLabel:"build to 16+", note:"Reps climbing at the 80 kg max (12 → 15/16) — keep building reps and slow the tempo."}
     }
   ];
 
