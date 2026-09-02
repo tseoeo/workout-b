@@ -3,7 +3,7 @@
 All exercise illustrations are normalised to an identical 900×675 PNG on an
 opaque white ground by `health/scripts/normalize_exercise_images.py`.
 
-## Everkinetic (9 of the 11 exercises across both repos)
+## Everkinetic (9 of the 10 exercises across both repos)
 
 Line-art plates from the **Everkinetic** exercise illustration library via
 Wikimedia Commons, licensed
@@ -20,16 +20,15 @@ These normalised crops are derivatives shared under the same licence.
 | `workout-a/images/backext.png` | [Hyperextensions 2.svg](https://commons.wikimedia.org/wiki/File:Hyperextensions_2.svg) |
 | `workout-a/images/bench.png` | [Bench press 1.svg](https://commons.wikimedia.org/wiki/File:Bench_press_1.svg) |
 | `workout-a/images/latpulldown.png` | [Wide grip lat pull down 2.svg](https://commons.wikimedia.org/wiki/File:Wide_grip_lat_pull_down_2.svg) |
-| `workout-a/images/cablecrunch.png` | [Seated ab crunch with cable 2.svg](https://commons.wikimedia.org/wiki/File:Seated_ab_crunch_with_cable_2.svg) |
+| `workout-a/images/weightedcrunch.png` | [Crunches 2.svg](https://commons.wikimedia.org/wiki/File:Crunches_2.svg) |
 
-## Original drawings (2 of the 11)
+## Original drawings (1 of the 10)
 
-Everkinetic does not cover these two movements, and no equivalent line art
+Everkinetic does not cover this movement, and no equivalent line art
 exists on Wikimedia Commons. Drawn for this repo and released **CC0**:
 
-- `workout-a/images/pallof.png` — Pallof press (standing anti-rotation cable hold)
 - `workout-b/images/abcrunch.png` — seated weighted ab crunch machine
 
-They match the Everkinetic plates on ground, ink colour, stroke weight and
-framing, but are simpler anatomically. They are the two weakest stylistic
-matches in the set.
+It matches the Everkinetic plates on ground, ink colour, stroke weight and
+framing, but is simpler anatomically. It is the weakest stylistic match in
+the set.
